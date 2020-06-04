@@ -18,6 +18,7 @@ services:
     ports:
       - "13306:3306"
     environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_ROOT_PASSWORD: ${PASSWORD}
       MYSQL_DATABASE: cue-simulator
       TZ: "Asia/Tokyo"

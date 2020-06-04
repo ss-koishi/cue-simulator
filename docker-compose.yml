@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  php:
+    build: ./php
+    volumes:
+      - ./app:/var/www/
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql-db
+    container_name: php
+
+  mysql-db:
+    tty: true
+    build: ./db
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+    ports:
+      - "13306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PASSWORD}
+      MYSQL_DATABASE: cue-simulator
+      TZ: "Asia/Tokyo"
+    container_name: mysql-db

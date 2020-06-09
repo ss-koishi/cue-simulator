@@ -13,7 +13,7 @@ class ConstantSkill implements Skill
 
     public function set_value($_val)
     {
-        $this->$value = $_val;
+        $this->value = $_val;
     }
 
     public function get_value()
@@ -23,6 +23,6 @@ class ConstantSkill implements Skill
 
     public function calc($param)
     {
-        return $param + $value;
+        return $param + $this->value;
     }
 }

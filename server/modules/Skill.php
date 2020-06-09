@@ -2,6 +2,6 @@
 interface Skill {
     // 属性
 
-    public function Culc();
+    public function calc($param);
 }
 ?>

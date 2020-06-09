@@ -2,6 +2,6 @@
 interface Cut {
     // 属性
 
-    public function CulcPoint();
+    public function calc_point();
 }
 ?>

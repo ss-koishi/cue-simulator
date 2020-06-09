@@ -1,10 +1,11 @@
 <?php
-class Simulator
+require_once('FirstCut.php');
+
+class Recording
 {
-    public function Main(){
-        echo "hoello";
+    public function start()
+    {
+        $first_cut = new FirstCut();
+        $first_cut->start();
     }
 }
-
-Simulator::Main();
-?>

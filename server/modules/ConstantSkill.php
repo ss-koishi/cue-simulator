@@ -1,16 +1,18 @@
 <?php
 require_once('Skill.php');
 
-class ConstantSkill implements Skill {
+class ConstantSkill implements Skill
+{
     private $value;
     private $probability;
 
-    public function setValue( $_val){
+    public function set_value($_val)
+    {
         $this->$value = $_val;
     }
 
-    public function Culc($param){
+    public function calc($param)
+    {
         return $param + $value;
     }
 }
-?>

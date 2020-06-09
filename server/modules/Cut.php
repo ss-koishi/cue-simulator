@@ -1,9 +1,7 @@
 <?php
-abstract Cut {
+interface Cut {
     // 属性
 
-    public int CulcPoint(){
-        // TODO:
-    }
+    public function CulcPoint();
 }
 ?>

@@ -1,10 +1,13 @@
 <?php
+require_once('Recording.php');
+
 class Simulator
 {
-    public function Main(){
-        echo "hoello";
+    public function run()
+    {
+        $recording = new Recording();
+        $recording->start();
     }
 }
 
-Simulator::Main();
-?>
+(new Simulator())->run();

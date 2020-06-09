@@ -1,7 +1,7 @@
 <?php
 require_once('Skill.php');
 
-class ConstantSkill implements Skill
+class ConstantSkill extends Skill
 {
     private $value;
     private $probability;

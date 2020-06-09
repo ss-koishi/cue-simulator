@@ -1,7 +1,12 @@
 <?php
-interface Skill {
-    // 属性
+abstract class Skill {
+    /**
+     * スキル発動確率
+     *
+     * @var double
+     */
+    private $probability;
 
-    public function calc($param);
+    public abstract function calc($param);
 }
 ?>

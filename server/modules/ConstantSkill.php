@@ -23,6 +23,14 @@ class ConstantSkill implements Skill
 
     public function calc($param)
     {
-        return $param + $this->value;
+        // TODO: 確率計算
+        if( $this->probability >= 1 )
+        {
+            return $this->value + $param;
+        }
+        else
+        {
+            return $this->value;
+        }
     }
 }

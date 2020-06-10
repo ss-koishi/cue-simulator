@@ -21,12 +21,13 @@ abstract class Skill
 
     /**
      * スキルの影響対象
-     * @var array
      */
     private $type;
     private $team;
     private $name;
-    private $kind_of; // どの値があがるか ('all', 'voice', 'technique', 'mental', 'charisma')
+
+    // どの値があがるか ('all', 'voice', 'technique', 'mental', 'charisma')
+    private $kind_of;
 
     abstract public function calc(&$main_casts);
 

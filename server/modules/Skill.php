@@ -31,17 +31,19 @@ abstract class Skill
 
     // Constant | Propotion
     private $type;
-    
 
-    abstract public function calc(&$main_casts);
 
-    public function __construct(float $prob, string $kind_of, array $targets) {
+    abstract public function evaluate(&$cut);
+
+    public function __construct(float $prob, string $kind_of, array $targets, string $type, bool $is_keep) {
         $this->is_invoke = false;
         $this->probability = $prob;
         $this->kind_of = $kind_of;
         $this->attr = $targets[0];
         $this->team = $targets[1];
         $this->name = $targets[2];
+        $this->type = $type;
+        $this->is_keep = $is_keep;
     }
 
     /**

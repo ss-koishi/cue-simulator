@@ -31,8 +31,13 @@ abstract class Skill
 
     abstract public function calc(&$main_casts);
 
-    public function __construct() {
+    public function __construct(float $prob, string $kind_of, array $targets) {
         $this->is_invoke = false;
+        $this->probability = $prob;
+        $this->kind_of = $kind_of;
+        $this->type = $targets[0];
+        $this->team = $targets[1];
+        $this->name = $targets[2];
     }
 
     /**

@@ -1,36 +1,80 @@
 <?php
 require_once('Skill.php');
 
+/**
+ * is_invoke()する前に必ずinvoke()する
+ */
 class ConstantSkill extends Skill
 {
-    private $value;
-    private $probability;
+    private $upward_value;
 
-    function __construct() {
-        $this->value = 0;
-        $this->probability = 1;
+    public function __construct(int $up_val, float $prob, string $kind_of, array $targets, bool $is_keep)
+    {
+        parent::__construct($prob, $kind_of, $targets, 'Constant', $is_keep);
+        $this->upward_value = $up_val;
     }
 
-    public function set_value($_val)
+    /**
+     * Cutを渡してメインキャストがスキルの対象になるかどうか判定して計算
+     * （実際に加算するのは後）
+     * @param   $cut    Cut カット
+     */
+    // MEMO: Cutクラスごと渡して評価するのが良さそう
+    public function evaluate(&$cut): void
     {
-        $this->value = $_val;
-    }
+        $main_casts = $cut->get_main_casts();
+        if ($this->is_invoke()) {
+            $index = -1;
+            foreach ($main_casts as $cast) {
+                $index++;
 
-    public function get_value()
-    {
-        $this->$value;
-    }
+                $attr = $this->get_target_attr();
+                if ($attr !== 'all' && $cast->get_attr() !== $attr) {  // タイプ制約
+                    continue;
+                }
 
-    public function calc($param)
-    {
-        // TODO: 確率計算
-        if( $this->probability >= 1 )
-        {
-            return $this->value + $param;
+                $team = $this->get_target_team();
+                if ($team !== 'all' && $cast->get_team() !== $team) {  // チーム制約
+                    continue;
+                }
+
+                $name = $this->get_target_name();
+                if ($name !== 'all' && $cast->get_name() !== $name) {  // キャラ制約
+                    continue;
+                }
+
+                if ($this->is_keep()) {    // ３カット継続
+                    if($this->get_type() === 'Constant') {
+                        $cut->keep_upward_sum[$index][$this->get_target_attr()] += $this->get_upward_value();
+                    } else {
+                        // TODO: 倍率バフ
+                    }
+                } else {                   // カット限定
+                    if($this->get_type() === 'Constant') {
+                        $cut->upward_sum[$index][$this->get_target_attr()] += $this->get_upward_value();
+                    } else {
+                        // TODO: 倍率バフ
+                    }
+                }
+            }
         }
-        else
-        {
-            return $this->value;
-        }
+    }
+
+    /**
+     * 定数スキルの上昇値を設定する
+     * @param int $up_val 上昇値
+     */
+    public function set_upward_value(int $up_val)
+    {
+        $this->upward_value = $up_val;
+    }
+
+    /**
+     * 定数スキルの上昇値を取得
+     * @return int 上昇値　
+     */
+    public function get_upward_value(): int
+    {
+        return $this->upward_value;
     }
 }

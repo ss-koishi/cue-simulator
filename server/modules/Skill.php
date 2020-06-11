@@ -31,6 +31,10 @@ abstract class Skill
 
     abstract public function calc(&$main_casts);
 
+    public function __construct() {
+        $this->is_invoke = false;
+    }
+
     /**
      * このスキルが発動するかどうかシミュレート
      * @param  card_class メインキャスト全員
@@ -39,7 +43,7 @@ abstract class Skill
     {
         $rand = $this->get_rand(0, 1);
         if ($this->probability < $rand) { // 発動しない確率
-            $this->is_invoke = false;
+            return;
         }
 
         // TODO: 対象声優の条件を満たすか
@@ -144,7 +148,7 @@ abstract class Skill
      * 乱数を取得
      * @param  int    $min 最小値
      * @param  int    $max 最大値
-     * @return float      [$min, $max]の乱数
+     * @return float  [$min, $max]の乱数
      */
     protected function get_rand(int $min, int $max): float
     {

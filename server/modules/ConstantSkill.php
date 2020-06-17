@@ -23,39 +23,33 @@ class ConstantSkill extends Skill
     public function evaluate(&$cut): void
     {
         $main_casts = $cut->get_main_casts();
-        if ($this->is_invoke()) {
-            $index = -1;
-            foreach ($main_casts as $cast) {
-                $index++;
+        if (!$this->is_invoke()) {
+            return;
+        }
 
-                $attr = $this->get_target_attr();
-                if ($attr !== 'all' && $cast->get_attr() !== $attr) {  // タイプ制約
-                    continue;
-                }
+        $index = -1;
+        foreach ($main_casts as $cast) {
+            $index++;
 
-                $team = $this->get_target_team();
-                if ($team !== 'all' && $cast->get_team() !== $team) {  // チーム制約
-                    continue;
-                }
+            $attr = $this->get_target_attr();
+            if ($attr !== 'all' && $cast->get_attr() !== $attr) {  // タイプ制約
+                continue;
+            }
 
-                $name = $this->get_target_name();
-                if ($name !== 'all' && $cast->get_name() !== $name) {  // キャラ制約
-                    continue;
-                }
+            $team = $this->get_target_team();
+            if ($team !== 'all' && $cast->get_team() !== $team) {  // チーム制約
+                continue;
+            }
 
-                if ($this->is_keep()) {    // ３カット継続
-                    if($this->get_type() === 'Constant') {
-                        $cut->keep_upward_sum[$index][$this->get_target_attr()] += $this->get_upward_value();
-                    } else {
-                        // TODO: 倍率バフ
-                    }
-                } else {                   // カット限定
-                    if($this->get_type() === 'Constant') {
-                        $cut->upward_sum[$index][$this->get_target_attr()] += $this->get_upward_value();
-                    } else {
-                        // TODO: 倍率バフ
-                    }
-                }
+            $name = $this->get_target_name();
+            if ($name !== 'all' && $cast->get_name() !== $name) {  // キャラ制約
+                continue;
+            }
+
+            if ($this->is_keep()) {    // ３カット継続
+                $cut->keep_upward_sum[$index][$this->get_kind_of()] += $this->get_upward_value();
+            } else {                   // カット限定
+                $cut->upward_sum[$index][$this->get_kind_of()] += $this->get_upward_value();
             }
         }
     }

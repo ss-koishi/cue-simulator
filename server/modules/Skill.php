@@ -22,17 +22,28 @@ abstract class Skill
     /**
      * スキルの影響対象
      */
-    private $type;
+    private $attr;
     private $team;
     private $name;
 
     // どの値があがるか ('all', 'voice', 'technique', 'mental', 'charisma')
     private $kind_of;
 
-    abstract public function calc(&$main_casts);
+    // Constant | Propotion
+    private $type;
 
-    public function __construct() {
+
+    abstract public function evaluate(&$cut);
+
+    public function __construct(float $prob, string $kind_of, array $targets, string $type, bool $is_keep) {
         $this->is_invoke = false;
+        $this->probability = $prob;
+        $this->kind_of = $kind_of;
+        $this->attr = $targets[0];
+        $this->team = $targets[1];
+        $this->name = $targets[2];
+        $this->type = $type;
+        $this->is_keep = $is_keep;
     }
 
     /**
@@ -64,9 +75,9 @@ abstract class Skill
     /**
      * スキル対象の指定
      */
-    public function set_targets(string $type, string $team, string $name): void
+    public function set_targets(string $attr, string $team, string $name): void
     {
-        $this->type = $type;
+        $this->attr = $attr;
         $this->team = $team;
         $this->name = $name;
     }
@@ -112,9 +123,9 @@ abstract class Skill
      * スキルの対象となるタイプを取得
      * @return string タイプ('all', 'voice', 'technique', 'mental', 'charisma')
      */
-    public function get_target_type(): string
+    public function get_target_attr(): string
     {
-        return $this->type;
+        return $this->attr;
     }
 
     /**
@@ -142,6 +153,15 @@ abstract class Skill
     public function get_kind_of(): string
     {
         return $this->kind_of;
+    }
+
+    /**
+     * 定数倍か倍率か
+     * @return string Constant|Propotion
+     */
+    public function get_type(): string
+    {
+        return $this->type;
     }
 
     /**

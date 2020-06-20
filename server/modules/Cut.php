@@ -21,7 +21,7 @@ abstract class Cut
         $this->main_casts = $main_casts;
         $this->sub_casts = $sub_casts;
         $this->keep_upward_sum = $this->upward_sum = [];
-        $this->keep_propotion_sum = $this->$propotion_sum = [];
+        $this->keep_propotion_sum = $this->propotion_sum = [];
 
         $attrs = [
             'all' => 0,

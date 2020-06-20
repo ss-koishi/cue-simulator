@@ -25,3 +25,7 @@ ENV PATH $PATH:/composer/vendor/bin
 WORKDIR /var/www
 
 RUN composer global require "laravel/installer"
+RUN composer require laravel/ui --dev
+RUN php artisan ui bootstrap
+RUN npm install
+RUN npm run dev

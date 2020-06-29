@@ -2,7 +2,7 @@ FROM php:7.3-fpm
 COPY ./php.ini /usr/local/etc/php/
 
 RUN apt-get update \
-    && apt-get install -y zlib1g-dev libzip-dev mariadb-client \
+    && apt-get install -y unzip zlib1g-dev libzip-dev mariadb-client \
     && docker-php-ext-install zip pdo_mysql
 
 # npm install
@@ -23,9 +23,4 @@ ENV COMPOSER_HOME /composer
 ENV PATH $PATH:/composer/vendor/bin
 
 WORKDIR /var/www
-
 RUN composer global require "laravel/installer"
-RUN composer require laravel/ui --dev
-RUN php artisan ui bootstrap
-RUN npm install
-RUN npm run dev

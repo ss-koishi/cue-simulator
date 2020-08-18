@@ -1,0 +1,212 @@
+
+.voice {
+    color: rgb(255, 54, 54);
+}
+
+.technique {
+    color: rgb(58, 71, 237);
+}
+
+.mental {
+    color: rgb(11, 207, 37);
+}
+
+.charisma {
+    color: rgb(227, 170, 0);
+}
+
+.recording-header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.recording-header > .dropdown {
+    display: inline;
+}
+
+.recording-header > .selected-recording {
+    margin-left: 5px;
+}
+
+.cut {
+    margin-left: 10px;
+}
+
+.link-bonus-form {
+    margin-top: 15px;
+}
+
+.link-bonus-form > input {
+    text-align: right;
+}
+
+.cast-info {
+    padding-top: 5px;
+    margin-top: 3px;
+}
+
+.cast-header {
+    width: 100%;
+    font-size: 1.5em;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.cast-header:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    border-bottom: 1px solid rgb(166, 166, 166);
+}
+
+.cast-status-form {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 8px;
+}
+
+.cast-status-form > .status {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.cast-status-form > .status:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+.cast-status-form > .status > .title {
+    margin-bottom: -2px;
+}
+
+.cast-status-form > .status > input {
+    width: 100%;
+    text-align: right !important;
+    margin-bottom: 2px;
+}
+
+.aptitude-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.aptitude-list > .aptitude {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    height: 22px;
+    border: 1px solid rgb(111, 111, 111);
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 2vh;
+}
+
+.aptitude-list > .aptitude:nth-of-type(-n+2) {
+    margin-bottom: 2px;
+}
+
+.cut-value-list {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.cut-value-list > .cut-value {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cut-value-list > .cut-value {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(175, 175, 175);
+}
+
+.skill-selector {
+    margin-top: 5px;
+}
+
+.skill {
+    font-size: 10px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 5px;
+}
+
+.skill:not(:first-of-type) {
+    margin-top: 5px;
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    margin-bottom: 6px;
+}
+
+.trash {
+    font-size: 0.8em;
+    margin-top: -3px;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+}
+
+.skill-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skill-row {
+    width: 46%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1vh;
+}
+
+.skill-row:first-of-type {
+    width: 100% !important;
+    justify-content: flex-start !important;
+}
+
+.skill-row > select {
+    margin-left: 10px;
+}
+
+button[name="add-skill-btn"] {
+    margin-top: 5px;
+    width: 100%;
+}
+
+.cast-info-footer {
+    font-size: 1.7em;
+    text-align: right;
+    margin-top: 5px;
+    border-top: 1px solid rgb(179, 179, 179);
+}
+
+.sub-cast-list {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sub-cast {
+    width: 100%;
+    padding: 2px;
+}
+
+.sub-cast-header {
+    padding-left: 5px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid rgb(185, 185, 185);
+}

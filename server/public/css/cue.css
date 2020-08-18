@@ -101,9 +101,10 @@
     justify-content: center;
     align-items: center;
     width: 49%;
-    height: 3vh;
+    height: 22px;
     border: 1px solid rgb(111, 111, 111);
     border-radius: 5px;
+    padding-top: 5px;
     padding-left: 3px;
     padding-right: 3px;
     margin-bottom: 2vh;

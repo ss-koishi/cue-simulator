@@ -74,32 +74,3 @@ function get_sub_casts_info() {
 
     return casts;
 }
-
-function get_extra_cast() {
-    let cast_data = {};
-    const cast = $('.extra-info');
-    cast_data['aptitude_cnt'] = $(cast).find('.aptitude.badge-success').length;
-
-    // キャストの各属性値を取得
-    $(cast).find('.cast-status-form > .status').each((_, status) => {
-        let sum = 0;
-        const attr = $(status).find('span').text();
-        $(status).find('input').each((_, input) => sum += parseInt($(input).val()));
-        cast_data[attr] = sum;
-    });
-
-    // スキル情報の取得
-    let skills = [];
-    $(cast).find('.skill-selector > .skill').each((_, skill) => {
-        let skill_data = {};
-        skill_data['type'] = $(skill).find('select[name="type"]').val();
-        skill_data['percent'] = $(skill).find('input[name="percent"]').val();
-        skill_data['target'] = $(skill).find('input[name="target"]').val();
-        skill_data['cut'] = $(skill).find('input[name="cut"]').val();
-        skill_data['up_val'] = $(skill).find('input[name="up_val"]').val();
-        skills.push(skill_data);
-    });
-    cast_data['skills'] = skills;
-
-    return cast_data;
-}

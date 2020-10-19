@@ -1,7 +1,7 @@
 <?php
 
 // TODO:  スキル系の変数、クラス追加
-class Card
+class Cast
 {
     protected $rare;
     protected $name; // 声優名

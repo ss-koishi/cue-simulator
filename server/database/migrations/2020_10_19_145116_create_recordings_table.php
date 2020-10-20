@@ -27,7 +27,8 @@ class CreateRecordingsTable extends Migration
                       ->onUpdate('cascade');
             }
 
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 

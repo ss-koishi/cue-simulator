@@ -17,7 +17,8 @@ class CreateCharactersTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->integer('team_id')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
 
             $table->index('team_id');
 

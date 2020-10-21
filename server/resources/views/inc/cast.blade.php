@@ -10,17 +10,8 @@
     @include('inc.castStatusForm')
 
     <!-- システムによる計算 -->
-    <div class="cut-value-list">
-        <div class="cut-value">
-            <span> Cut 1 </span> <span class="status"> 0 </span>
-        </div>
-        <div class="cut-value">
-            <span> Cut 2 </span> <span class="status"> 0 </span>
-        </div>
-        <div class="cut-value">
-            <span> Cut 3 </span> <span class="status"> 0 </span>
-        </div>
-    </div>
+    @include('inc.cutValueList')
+    
     <div class="skill-selector">
         <div class="border-bottom border-secondary"> Skills </div>
         <button name="add-skill-btn" class="btn btn-outline-secondary"> + </button>

@@ -1,5 +1,8 @@
 <?php
-require_once('FirstCut.php');
+
+namespace App\Library;
+
+use App\Library\FirstCut;
 
 class Recording
 {

@@ -60,6 +60,7 @@
             <div class="extra-cast col-sm-12 col-md-6 col-xl-3">
                 <div class="cast-header"> Extra </div>
                 @include('inc.castStatusForm')
+                @include('inc.cutValueList')
                 <div class="skill-selector">
                     <div class="border-bottom border-secondary"> Skills </div>
                     <button name="add-skill-btn" class="btn btn-outline-secondary"> + </button>
@@ -70,5 +71,8 @@
             </div>
         </div> <!-- .row -->
     </div> <!-- .col-12 -->
+    <div class="col-12">
+        <button id="run" class="btn btn-primary w-100">Run</button>
+    </div>
 </div>
 @endsection

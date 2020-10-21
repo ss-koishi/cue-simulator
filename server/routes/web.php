@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', 'ViewController@get_home');
+Route::post('recording', 'RecordingController@index');

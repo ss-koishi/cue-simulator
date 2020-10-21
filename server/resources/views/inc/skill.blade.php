@@ -17,7 +17,7 @@
             </div>
             <div class="skill-row">
                 <span class="title">発動率</span>
-                <input type="text" name="precent" size="10">
+                <input type="text" name="percent" size="10">
             </div>
             <div class="skill-row">
                 <span class="title">発動カット</span>

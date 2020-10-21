@@ -1,7 +1,28 @@
 // 収録選択されたときにタイトル表示
 $('.recording-header > .dropdown .dropdown-item').on('click', function() {
     $('.selected-recording').text($(this).text());
+
+    // サーバーにカット情報を取得しに行く
+    const id = $(this).data('id');
+    $.ajax({
+        type: 'GET',
+        url: '/recording/' + id,
+    }).done(function(cut_info) {
+        $('.cut-info > .cut').each((index, cut) => {
+            const detail = $(cut).children('span')[0];
+            $(detail).removeClass();
+            $(detail).text(cut_info['cut' + (index + 1)]);
+            $(detail).addClass(cut_info['cut' + (index + 1)]);
+        });
+    });
 });
+
+$('.cast-header .dropdown-menu > .dropdown-item').click(function(){
+    let visible_item = $('.dropdown-toggle', $(this).closest('.dropdown'));
+    console.log($(this).attr('value'));
+    $(visible_item).text($(this).text());
+});
+
 
 // 収録適性のトグル
 $('.aptitude-list > a').on('click', function() {

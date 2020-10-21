@@ -9,9 +9,10 @@
                 収録タイトル
             </button>
 
-            <!-- TODO: DBから収録情報の読み取り -->
             <div class="dropdown-menu" aria-labelledby="recording-dropdown">
-                <a class="dropdown-item" href="#">Override Legendary</a>
+            @foreach( $recordings as $recording )
+                <a class="dropdown-item" data-id="{{ $recording->id }}">{{ $recording->name }}</a>
+            @endforeach
             </div><!-- .dropdown-menu -->
         </div><!-- .dropdown -->
 
@@ -22,9 +23,9 @@
 
     <div class="col-12 cut-info">
         収録属性
-        <span class="cut"> Cut 1 <span class="voice">voice</span> </span>
-        <span class="cut"> Cut 2 <span class="technique">technique</span> </span>
-        <span class="cut"> Cut 3 <span class="voice">voice</span> </span>
+        <span class="cut"> Cut 1 <span> </span> </span>
+        <span class="cut"> Cut 2 <span> </span> </span>
+        <span class="cut"> Cut 3 <span> </span> </span>
     </div>
 
     <div class="col-12">
@@ -58,7 +59,9 @@
 
             <!-- Extraキャストだけ別フォーマット -->
             <div class="extra-cast col-sm-12 col-md-6 col-xl-3">
-                <div class="cast-header"> Extra </div>
+                <div class="cast-header">
+                    @include('inc.characters_dropdown')
+                </div>
                 @include('inc.castStatusForm')
                 <div class="skill-selector">
                     <div class="border-bottom border-secondary"> Skills </div>

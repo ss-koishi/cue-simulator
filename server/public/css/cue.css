@@ -54,6 +54,17 @@
     margin-bottom: 5px;
 }
 
+.cast-header > .dropdown > button {
+    margin-bottom: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.cast-header > .dropdown > .dropdown-menu {
+    max-height: 30vh;
+    overflow-y: auto;
+}
+
 .cast-header:after {
     content: "";
     position: absolute;

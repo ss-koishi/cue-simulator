@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'ViewController@get_home');
+Route::post('/recording', 'RecordingController@index');
 
 // API
 Route::get('/recording/{id}', 'RecordingController@get_recording_attributes');

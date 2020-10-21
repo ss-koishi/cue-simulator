@@ -60,7 +60,7 @@ $('.status > input').on('change', function() {
     if(isNaN(status)) return;
 
     // 満たしている配役適性の数を取得して、上昇倍率を計算
-    const target_cast = $(this).closest('.cast-info');
+    const target_cast = $(this).closest('.cast-info, .extra-cast');
     const apti_per = (1 + 0.1 * target_cast.find('.aptitude.badge-success').length);
 
     // 変更された属性が選択されている収録のカットと一致していれば再計算
@@ -83,7 +83,7 @@ $('.status > input').on('change', function() {
 
 function create_skill_dom(skill_num) {
     const row_contents = {
-        '発動率': 'precent',
+        '発動率': 'percent',
         '発動カット': 'cut',
         '対象': 'target',
         '上昇値': 'up_val',

@@ -63,6 +63,7 @@
                     @include('inc.characters_dropdown')
                 </div>
                 @include('inc.castStatusForm')
+                @include('inc.cutValueList')
                 <div class="skill-selector">
                     <div class="border-bottom border-secondary"> Skills </div>
                     <button name="add-skill-btn" class="btn btn-outline-secondary"> + </button>
@@ -73,5 +74,8 @@
             </div>
         </div> <!-- .row -->
     </div> <!-- .col-12 -->
+    <div class="col-12">
+        <button id="run" class="btn btn-primary w-100">Run</button>
+    </div>
 </div>
 @endsection

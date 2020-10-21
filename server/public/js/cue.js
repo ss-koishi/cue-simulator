@@ -19,7 +19,6 @@ $('.recording-header > .dropdown .dropdown-item').on('click', function() {
 
 $('.cast-header .dropdown-menu > .dropdown-item').click(function(){
     let visible_item = $('.dropdown-toggle', $(this).closest('.dropdown'));
-    console.log($(this).attr('value'));
     $(visible_item).text($(this).text());
 });
 

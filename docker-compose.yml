@@ -27,8 +27,5 @@ services:
     volumes:
       - ./db/mysql:/var/lib/mysql
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_ROOT_PASSWORD: ${PASSWORD}
-      MYSQL_DATABASE: cue-simulator
       TZ: "Asia/Tokyo"
     container_name: mysql

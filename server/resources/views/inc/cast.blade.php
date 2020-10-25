@@ -1,5 +1,7 @@
 <div class="cast-info col-sm-12 col-md-6 col-xl-3">
-    <div class="cast-header"> Cast <?= $i + 1 ?></div>
+    <div class="cast-header">
+        @include('inc.characters_dropdown')
+    </div>
     <div class="aptitude-list">
         <a class="aptitude badge badge-light"> コメディ </a>
         <a class="aptitude badge badge-light"> ファンタジー </a>

@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'ViewController@get_home');
-Route::post('recording', 'RecordingController@index');
+Route::post('/recording', 'RecordingController@index');
+
+// API
+Route::get('/recording/{id}', 'RecordingController@get_recording_attributes');

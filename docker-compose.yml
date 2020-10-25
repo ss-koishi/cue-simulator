@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - mysql-db
+      - mysql
     container_name: php
 
   nginx:
@@ -21,14 +21,11 @@ services:
     depends_on:
       - php
 
-  mysql-db:
+  mysql:
     tty: true
     build: ./db
     volumes:
       - ./db/mysql:/var/lib/mysql
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_ROOT_PASSWORD: ${PASSWORD}
-      MYSQL_DATABASE: cue-simulator
       TZ: "Asia/Tokyo"
-    container_name: mysql-db
+    container_name: mysql
